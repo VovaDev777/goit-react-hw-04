@@ -31,6 +31,7 @@ const App = () => {
     return (
         <>
             <Header onAdd={getSearchValue} />
+            <ImageGallery/>
         </>
     )
 }
