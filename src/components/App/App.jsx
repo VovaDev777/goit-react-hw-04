@@ -7,8 +7,6 @@ import axios from 'axios'
 const ACCES_KEY = "YGRmWj6GDedxJ_oXB0FmTQ150ytZjLND_WU28-vdnDY"
 
 
-
-
 const App = () => {
 
     const [data, setData] = useState([]);
