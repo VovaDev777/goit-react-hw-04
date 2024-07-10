@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import { useEffect, useState } from 'react'
 import '../../reset.css'
 import axios from 'axios'
+import ImageGallery from '../ImageGallery'
 
 const ACCES_KEY = "YGRmWj6GDedxJ_oXB0FmTQ150ytZjLND_WU28-vdnDY"
 
