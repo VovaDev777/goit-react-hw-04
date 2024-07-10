@@ -1,10 +1,12 @@
-import React from 'react'
+
 import ImageCards from '../ImageCard/ImageCard'
 
-const ImageGallery = () => {
+const ImageGallery = ({images}) => {
   return (
     <ul>
-      
+      {images.map((image) => (
+        
+      ))}
     </ul>
 
   )
