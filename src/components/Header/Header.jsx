@@ -4,12 +4,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 const Header = ({ onAdd }) => {
 
     const handleSubmit = (event) => {
+        
         const inputValue = event.target.elements.search.value;
         event.preventDefault();
         onAdd(inputValue);
         // console.log(inputValue)
     }
-    
+
 
     return (
         <header className={css.d1}>
