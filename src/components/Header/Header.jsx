@@ -11,7 +11,6 @@ const Header = ({ onAdd }) => {
         // console.log(inputValue)
     }
 
-    
 
     return (
         <header className={css.d1}>
