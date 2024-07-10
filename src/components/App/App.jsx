@@ -2,35 +2,36 @@
 import Header from '../Header/Header'
 import { useEffect, useState } from 'react'
 import '../../reset.css'
-import axios from 'axios'
-import ImageGallery from '../ImageGallery'
+import ImageGallery from '../ImageGallery/ImageGallery'
 
 const ACCES_KEY = "YGRmWj6GDedxJ_oXB0FmTQ150ytZjLND_WU28-vdnDY"
 
 
 const App = () => {
-
+    const [searchWord, setSearchWord] = useState("");
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        async function getData() {
+        async function fetchPhotos(query) {
             const response = await axios.get(
-                `https://api.unsplash.com/photos/?client_id=${ACCES_KEY}&query=car`
+                `https://api.unsplash.com/photos/?client_id=${ACCES_KEY}&query=${query}`
             );
             setData(response.data);
         }
+        // getData(searchWord);
+        // console.log(data)
+        
+    }, [searchWord, data])
 
-        getData();
-    }, [])
+    // const getSearchValue = (value) => {
+    //     console.log(value)
+    // }
 
-    const getSearchValue = (value) => {
-        console.log(value)
-    }
+    
 
-    console.log(data)
     return (
         <>
-            <Header onAdd={getSearchValue} />
+            <Header onAdd={setSearchWord} />
             {/* <ImageGallery/> */}
         </>
     )

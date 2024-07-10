@@ -2,7 +2,9 @@ import React from 'react'
 
 const ImageCard = () => {
   return (
-    <div>ImageCard</div>
+    <div>
+      <img src="" alt="" />
+    </div>
   )
 }
 

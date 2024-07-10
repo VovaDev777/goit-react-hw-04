@@ -1,8 +1,12 @@
 import React from 'react'
+import ImageCards from '../ImageCard/ImageCard'
 
 const ImageGallery = () => {
   return (
-    <div>ImageGallery</div>
+    <ul>
+      
+    </ul>
+
   )
 }
 
