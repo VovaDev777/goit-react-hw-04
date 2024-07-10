@@ -2,31 +2,31 @@
 import Header from '../Header/Header'
 import { useEffect, useState } from 'react'
 import '../../reset.css'
-import ImageGallery from '../ImageGallery/ImageGallery'
+// import ImageGallery from '../ImageGallery/ImageGallery'
+import { fetchPhotos } from '../../fetchData'
 
 
 
 
 const App = () => {
-    const [searchWord, setSearchWord] = useState("");
+    const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
 
     useEffect(() => {
         
-        // getData(searchWord);
-        // console.log(data)
         
-    }, [searchWord, data])
+    }, [topic, data])
 
     // const getSearchValue = (value) => {
     //     console.log(value)
     // }
 
     
+    
 
     return (
         <>
-            <Header onAdd={setSearchWord} />
+            <Header onAdd={setTopic} />
             {/* <ImageGallery/> */}
         </>
     )
