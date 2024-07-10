@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ImageCard = () => {
+const ImageCard = ({url, desc}) => {
   return (
     <div>
-      <img src="" alt="" />
+      <img src={url} alt={desc} />
     </div>
   )
 }

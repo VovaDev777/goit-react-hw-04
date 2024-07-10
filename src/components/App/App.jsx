@@ -34,7 +34,7 @@ const App = () => {
     return (
         <>
             <Header onAdd={setTopic} />
-            <ImageGallery photos={data}/>
+            <ImageGallery images={data}/>
         </>
     )
 }
