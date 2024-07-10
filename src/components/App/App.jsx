@@ -5,11 +5,13 @@ import '../../reset.css'
 
 
 const App = () => {
+const [searchWord, setSearchWord] = useState('');
 
+    console.log(searchWord)
 
   return (
     <>
-        <Header />
+        <Header onAdd={setSearchWord}/>
     </>
   )
 }
