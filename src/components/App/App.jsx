@@ -6,6 +6,7 @@ import ImageGallery from '../ImageGallery/ImageGallery'
 import { fetchPhotos } from '../../fetchData'
 import { ColorRing } from 'react-loader-spinner'
 import css from './App.module.css'
+// import toast from 'react-hot-toast/headless'
 
 
 
@@ -34,11 +35,7 @@ const App = () => {
 
         }
         getPhoto();
-        // async function getPhoto() {
-        //     const photos = await fetchPhotos(topic)
-        //     setData(photos);
-        // }
-        // getPhoto();
+        
 
     }, [topic])
 
@@ -62,7 +59,6 @@ const App = () => {
                 </div>
             )}
             <ImageGallery images={data} />
-
         </>
     )
 }
