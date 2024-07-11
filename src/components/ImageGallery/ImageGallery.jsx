@@ -11,6 +11,7 @@ const ImageGallery = ({ images }) => {
             <ImageCard
               url={image.urls.small}
               desc={image.alt_description}
+              modalUrl={image.urls.regular}
             />
           </li>
         ))}
