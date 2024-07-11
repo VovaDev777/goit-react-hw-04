@@ -9,6 +9,7 @@ import css from './App.module.css'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn'
 
+
 const App = () => {
     const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
