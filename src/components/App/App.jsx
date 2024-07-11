@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react'
 import '../../reset.css'
 import ImageGallery from '../ImageGallery/ImageGallery'
 import { fetchPhotos } from '../../fetchData'
-import { MagnifyingGlass } from 'react-loader-spinner'
+import { ColorRing } from 'react-loader-spinner'
+import css from './App.module.css'
+
 
 
 
@@ -12,31 +14,55 @@ import { MagnifyingGlass } from 'react-loader-spinner'
 const App = () => {
     const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
         if (topic === "") {
             return;
         }
+
         async function getPhoto() {
-            const photos = await fetchPhotos(topic)
-            setData(photos);
+            try {
+                setLoading(true);
+                const photos = await fetchPhotos(topic);
+                setData(photos);
+                setLoading(false);
+            } catch (error) {
+                console.log(error)
+            }
+
         }
         getPhoto();
-        
+        // async function getPhoto() {
+        //     const photos = await fetchPhotos(topic)
+        //     setData(photos);
+        // }
+        // getPhoto();
+
     }, [topic])
 
     console.log(data)
-    
 
-    
-    
+
+
+
 
     return (
         <>
             <Header onAdd={setTopic} />
-            <ImageGallery images={data}/>
-            
+            {loading && (
+                <div className={css.container}>
+                    <ColorRing
+                        className={css.loader}
+                        height="130"
+                        width="130"
+                        colors={['#A3D0C3', '#7BA7AB', '#A3D0C3', '#7BA7AB', '#A3D0C3']}
+                    />
+                </div>
+            )}
+            <ImageGallery images={data} />
+
         </>
     )
 }
