@@ -14,42 +14,52 @@ const App = () => {
     const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError]= useState(false);
+    const [error, setError] = useState(false);
     const [page, setPage] = useState(1)
 
-    useEffect(() => {
-        if (topic === "") {
+    // useEffect(() => {
+    //     if (topic === "") {
+    //         return;
+    //     }
+    //     async function getPhoto() {
+    //         try {
+    //             setLoading(true);
+    //             const photos = await fetchPhotos(topic);
+    //             setData(photos);
+    //             setLoading(false);
+    //         } catch (error) {
+    //             setLoading(false)
+    //             setError(true)
+    //             console.log(error)
+    //         }
+    //     }
+    //     getPhoto();
+    // }, [topic])
+    const handleSearch = async (currentTopic) => {
+        if (currentTopic === topic) {
             return;
         }
-        async function getPhoto() {
-            try {
-                setLoading(true);
-                const photos = await fetchPhotos(topic);
-                setData(photos);
-                setLoading(false);
-            } catch (error) {
-                setLoading(false)
-                setError(true)
-                console.log(error)
-            }
-        }
-        getPhoto();
-    }, [topic])
-    // const handleSearch = async (currentTopic) => {
-    //     
-    // };
+        setData([]);
+        setTopic(currentTopic);
+
+    };
 
 
     console.log(data)
     const handleLoadMore = () => {
         setPage(page + 1);
+
     }
+
     useEffect(() => {
         async function fetchData() {
+            
             try {
                 setLoading(true);
-                const photos = await fetchPhotos(topic);
-                setData(photos);
+                const photos = await fetchPhotos(topic, page);
+                setData(prevData => {
+                    return [...prevData, ...photos]
+                });
             } catch (error) {
                 setError(true)
             } finally {
@@ -61,7 +71,7 @@ const App = () => {
 
     return (
         <>
-            <Header onAdd={handleSearch}/>
+            <Header onAdd={handleSearch} />
             {loading && (
                 <div className={css.container}>
                     <ColorRing
@@ -73,7 +83,7 @@ const App = () => {
                 </div>
             )}
             {error ? <ErrorMessage /> : <ImageGallery images={data} />}
-            <LoadMoreBtn click={handleLoadMore}/>
+            {topic !== "" && <LoadMoreBtn click={handleLoadMore} />}
         </>
     )
 }
