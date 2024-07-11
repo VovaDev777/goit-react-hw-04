@@ -9,22 +9,16 @@ import css from './App.module.css'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 // import toast from 'react-hot-toast/headless'
 
-
-
-
-
 const App = () => {
     const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError]= useState(false);
 
-
     useEffect(() => {
         if (topic === "") {
             return;
         }
-
         async function getPhoto() {
             try {
                 setLoading(true);
@@ -36,16 +30,12 @@ const App = () => {
                 setError(true)
                 console.log(error)
             }
-
         }
         getPhoto();
-        
-
     }, [topic])
 
     console.log(data)
-
-
+    
     return (
         <>
             <Header onAdd={setTopic} />
