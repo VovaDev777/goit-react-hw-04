@@ -52,8 +52,10 @@ const App = () => {
     }
 
     useEffect(() => {
+        if (topic === "") {
+            return;
+        }
         async function fetchData() {
-            
             try {
                 setLoading(true);
                 const photos = await fetchPhotos(topic, page);
