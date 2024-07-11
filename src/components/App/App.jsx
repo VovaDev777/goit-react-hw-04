@@ -55,7 +55,6 @@ const App = () => {
     }, [page, topic]);
 
 
-    
     return (
         <>
             <Header onAdd={handleSearch} />
