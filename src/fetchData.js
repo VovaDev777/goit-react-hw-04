@@ -6,5 +6,6 @@ export const fetchPhotos = async (topic, page) => {
     const response = await axios.get(
         `https://api.unsplash.com/search/photos/?client_id=${ACCES_KEY}&page=${page}&query=${topic}&per_page=20`
     );
-    return response.data.results;
+    return response.data;
+    // return response.data.results;
 }

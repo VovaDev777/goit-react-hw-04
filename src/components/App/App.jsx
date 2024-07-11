@@ -9,36 +9,19 @@ import css from './App.module.css'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn'
 
-
 const App = () => {
     const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [page, setPage] = useState(1)
+    const [maxPage, setMaxPage] = useState(0);
 
-    // useEffect(() => {
-    //     if (topic === "") {
-    //         return;
-    //     }
-    //     async function getPhoto() {
-    //         try {
-    //             setLoading(true);
-    //             const photos = await fetchPhotos(topic);
-    //             setData(photos);
-    //             setLoading(false);
-    //         } catch (error) {
-    //             setLoading(false)
-    //             setError(true)
-    //             console.log(error)
-    //         }
-    //     }
-    //     getPhoto();
-    // }, [topic])
     const handleSearch = async (currentTopic) => {
         if (currentTopic === topic) {
             return;
         }
+        setPage(0);
         setData([]);
         setTopic(currentTopic);
 
@@ -59,8 +42,9 @@ const App = () => {
                 setLoading(true);
                 const photos = await fetchPhotos(topic, page);
                 setData(prevData => {
-                    return [...prevData, ...photos]
+                    return [...prevData, ...photos.results]
                 });
+                setMaxPage(photos.total_pages);
             } catch (error) {
                 setError(true)
             } finally {
@@ -70,9 +54,13 @@ const App = () => {
         fetchData();
     }, [page, topic]);
 
+
+    
     return (
         <>
             <Header onAdd={handleSearch} />
+            {error ? <ErrorMessage /> : <ImageGallery images={data} />}
+            {topic !== "" && !error && !loading && maxPage != page && <LoadMoreBtn click={handleLoadMore} />}
             {loading && (
                 <div className={css.container}>
                     <ColorRing
@@ -83,8 +71,6 @@ const App = () => {
                     />
                 </div>
             )}
-            {error ? <ErrorMessage /> : <ImageGallery images={data} />}
-            {topic !== "" && <LoadMoreBtn click={handleLoadMore} />}
         </>
     )
 }
