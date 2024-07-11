@@ -8,7 +8,6 @@ import { ColorRing } from 'react-loader-spinner'
 import css from './App.module.css'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn'
-// import toast from 'react-hot-toast/headless'
 
 const App = () => {
     const [topic, setTopic] = useState("");
