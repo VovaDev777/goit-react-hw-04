@@ -1,8 +1,10 @@
-import React from 'react'
 
-const LoadMoreBtn = () => {
+
+const LoadMoreBtn = ({ click }) => {
   return (
-    <div>LoadMoreBtn</div>
+    <>
+      <button onClick={click}>Load more</button>
+    </>
   )
 }
 

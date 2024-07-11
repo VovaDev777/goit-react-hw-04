@@ -7,6 +7,7 @@ import { fetchPhotos } from '../../fetchData'
 import { ColorRing } from 'react-loader-spinner'
 import css from './App.module.css'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn'
 // import toast from 'react-hot-toast/headless'
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError]= useState(false);
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         if (topic === "") {
@@ -22,7 +24,7 @@ const App = () => {
         async function getPhoto() {
             try {
                 setLoading(true);
-                const photos = await fetchPhotos(topic);
+                const photos = await fetchPhotos(topic, page);
                 setData(photos);
                 setLoading(false);
             } catch (error) {
@@ -32,10 +34,13 @@ const App = () => {
             }
         }
         getPhoto();
-    }, [topic])
+    }, [topic, page])
 
     console.log(data)
-    
+    const handleLoadMore = () => {
+        setPage(page + 1);
+    }
+
     return (
         <>
             <Header onAdd={setTopic} />
@@ -50,6 +55,7 @@ const App = () => {
                 </div>
             )}
             {error ? <ErrorMessage /> : <ImageGallery images={data} />}
+            <LoadMoreBtn click={handleLoadMore}/>
         </>
     )
 }
