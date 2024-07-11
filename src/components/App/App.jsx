@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import '../../reset.css'
 import ImageGallery from '../ImageGallery/ImageGallery'
 import { fetchPhotos } from '../../fetchData'
+import { MagnifyingGlass } from 'react-loader-spinner'
 
 
 
@@ -35,6 +36,7 @@ const App = () => {
         <>
             <Header onAdd={setTopic} />
             <ImageGallery images={data}/>
+            
         </>
     )
 }

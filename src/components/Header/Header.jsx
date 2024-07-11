@@ -1,13 +1,21 @@
 import css from './Header.module.css'
 import { AiOutlineSearch } from "react-icons/ai";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Header = ({ onAdd }) => {
 
     const handleSubmit = (event) => {
+    
         
         const inputValue = event.target.elements.search.value;
         event.preventDefault();
-        onAdd(inputValue);
+        if (inputValue === "") {
+            toast.error('Please, write something!');
+        } else {
+            toast.success('Success!');
+            onAdd(inputValue);
+        }
+        
         // console.log(inputValue)
     }
 
@@ -26,8 +34,10 @@ const Header = ({ onAdd }) => {
                 <button type="submit">
                     <AiOutlineSearch className={css.icon} />
                 </button>
+                <Toaster />
             </form>
         </header>
+        
 
     )
 }
