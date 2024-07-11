@@ -24,7 +24,7 @@ const App = () => {
         async function getPhoto() {
             try {
                 setLoading(true);
-                const photos = await fetchPhotos(topic, page);
+                const photos = await fetchPhotos(topic);
                 setData(photos);
                 setLoading(false);
             } catch (error) {
@@ -34,16 +34,34 @@ const App = () => {
             }
         }
         getPhoto();
-    }, [topic, page])
+    }, [topic])
+    // const handleSearch = async (currentTopic) => {
+    //     
+    // };
+
 
     console.log(data)
     const handleLoadMore = () => {
         setPage(page + 1);
     }
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                setLoading(true);
+                const photos = await fetchPhotos(topic);
+                setData(photos);
+            } catch (error) {
+                setError(true)
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchData();
+    }, [page, topic]);
 
     return (
         <>
-            <Header onAdd={setTopic} />
+            <Header onAdd={handleSearch}/>
             {loading && (
                 <div className={css.container}>
                     <ColorRing

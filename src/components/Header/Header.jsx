@@ -11,9 +11,11 @@ const Header = ({ onAdd }) => {
         event.preventDefault();
         if (inputValue === "") {
             toast.error('Please, write something!');
+            
         } else {
             toast.success('Success!');
             onAdd(inputValue);
+            // handleSearch(onAdd(inputValue));
         }
         
         // console.log(inputValue)
