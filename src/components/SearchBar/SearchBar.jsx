@@ -11,7 +11,7 @@ const Header = ({ onAdd }) => {
             toast.error('Please, write something!');
             
         } else {
-            toast.success('Success!');
+            
             onAdd(inputValue);
         }
         

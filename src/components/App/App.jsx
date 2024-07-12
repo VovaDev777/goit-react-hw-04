@@ -8,6 +8,7 @@ import { ColorRing } from 'react-loader-spinner'
 import css from './App.module.css'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn'
+import toast, { Toaster } from 'react-hot-toast';
 
 const App = () => {
     const [topic, setTopic] = useState("");
@@ -21,13 +22,12 @@ const App = () => {
         if (currentTopic === topic) {
             return;
         }
-        setPage(1);
+        setPage(0);
         setData([]);
         setTopic(currentTopic);
-
     };
 
-    console.log(data)
+    // console.log(data)
     const handleLoadMore = () => {
         setPage(page + 1);
 
@@ -41,6 +41,11 @@ const App = () => {
             try {
                 setLoading(true);
                 const photos = await fetchPhotos(topic, page);
+                if (photos.total === 0) {
+                    toast.error('We found nothing');
+                } else {
+                    toast.success('Success!');
+                }
                 setData(prevData => {
                     return [...prevData, ...photos.results]
                 });
@@ -54,6 +59,8 @@ const App = () => {
         fetchData();
     }, [page, topic]);
 
+
+    
 
     return (
         <>
@@ -70,6 +77,7 @@ const App = () => {
                     />
                 </div>
             )}
+            <Toaster />
         </>
     )
 }
