@@ -1,5 +1,5 @@
 // import React from 'react'
-import Header from '../Header/Header'
+import SearchBar from '../SearchBar/SearchBar'
 import { useEffect, useState } from 'react'
 import '../../reset.css'
 import ImageGallery from '../ImageGallery/ImageGallery'
@@ -21,7 +21,7 @@ const App = () => {
         if (currentTopic === topic) {
             return;
         }
-        setPage(0);
+        setPage(1);
         setData([]);
         setTopic(currentTopic);
 
@@ -57,7 +57,7 @@ const App = () => {
 
     return (
         <>
-            <Header onAdd={handleSearch} />
+            <SearchBar onAdd={handleSearch} />
             {error ? <ErrorMessage /> : <ImageGallery images={data} />}
             {topic !== "" && !error && !loading && maxPage != page && <LoadMoreBtn click={handleLoadMore} />}
             {loading && (

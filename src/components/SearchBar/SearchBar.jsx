@@ -1,4 +1,4 @@
-import css from './Header.module.css'
+import css from './SearchBar.module.css'
 import { AiOutlineSearch } from "react-icons/ai";
 import toast, { Toaster } from 'react-hot-toast';
 
