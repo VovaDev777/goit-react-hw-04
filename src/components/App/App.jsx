@@ -59,7 +59,6 @@ const App = () => {
     }, [page, topic]);
 
 
-
     return (
         <>
             <SearchBar onAdd={handleSearch} />
