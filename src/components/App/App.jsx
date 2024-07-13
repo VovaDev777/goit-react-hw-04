@@ -10,6 +10,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn'
 import toast, { Toaster } from 'react-hot-toast';
 
+
 const App = () => {
     const [topic, setTopic] = useState("");
     const [data, setData] = useState([]);
