@@ -3,7 +3,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import toast, { Toaster } from 'react-hot-toast';
 
 const Header = ({ onAdd }) => {
-
     const handleSubmit = (event) => {
         const inputValue = event.target.elements.search.value;
         event.preventDefault();
