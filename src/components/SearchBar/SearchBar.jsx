@@ -16,8 +16,6 @@ const Header = ({ onAdd }) => {
         }
         
     }
-    
-
 
     return (
         <header className={css.d1}>
