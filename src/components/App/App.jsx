@@ -22,7 +22,7 @@ const App = () => {
         if (currentTopic === topic) {
             return;
         }
-        setPage(0);
+        setPage(1);
         setData([]);
         setTopic(currentTopic);
     };
@@ -66,7 +66,7 @@ const App = () => {
         <>
             <SearchBar onAdd={handleSearch} />
             {error ? <ErrorMessage /> : <ImageGallery images={data} />}
-            {topic !== "" && !error && !loading && maxPage != page && <LoadMoreBtn click={handleLoadMore} />}
+            {topic !== "" && !error && !loading && maxPage != page && maxPage != 0 && <LoadMoreBtn click={handleLoadMore} />}
             {loading && (
                 <div className={css.container}>
                     <ColorRing
