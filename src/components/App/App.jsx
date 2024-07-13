@@ -28,6 +28,7 @@ const App = () => {
     };
 
     // console.log(data)
+    
     const handleLoadMore = () => {
         setPage(page + 1);
 
