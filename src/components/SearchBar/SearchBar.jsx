@@ -16,6 +16,18 @@ const Header = ({ onAdd }) => {
         }
         
     }
+    const handleSubmit = (event) => {
+        const inputValue = event.target.elements.search.value;
+        event.preventDefault();
+        if (inputValue === "") {
+            toast.error('Please, write something!');
+            
+        } else {
+            
+            onAdd(inputValue);
+        }
+        
+    }
 
 
     return (
