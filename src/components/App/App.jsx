@@ -58,7 +58,6 @@ const App = () => {
         fetchData();
     }, [page, topic]);
 
-
     return (
         <>
             <SearchBar onAdd={handleSearch} />
