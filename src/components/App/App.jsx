@@ -60,7 +60,6 @@ const App = () => {
 
 
 
-
     return (
         <>
             <SearchBar onAdd={handleSearch} />
