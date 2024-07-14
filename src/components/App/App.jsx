@@ -27,7 +27,6 @@ const App = () => {
         setTopic(currentTopic);
     };
 
-    
 
     // console.log(data)
     const handleLoadMore = () => {
