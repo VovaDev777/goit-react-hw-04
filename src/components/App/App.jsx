@@ -26,7 +26,9 @@ const App = () => {
         setData([]);
         setTopic(currentTopic);
     };
+
     
+
     // console.log(data)
     const handleLoadMore = () => {
         setPage(page + 1);
