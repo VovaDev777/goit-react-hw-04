@@ -1,16 +1,16 @@
-import css from './ImageCard.module.css'
-import Modal from 'react-modal';
+// import css from './ImageCard.module.css'
+// import Modal from 'react-modal';
 
 
-const ImageCard = ({url, desc}) => {
-  return (
-    <div>
-      <img src={url} alt={desc} className={css.image}/>
-    </div>
-  )
-}
+// const ImageCard = ({url, desc}) => {
+//   return (
+//     <div>
+//       <img src={url} alt={desc} className={css.image}/>
+//     </div>
+//   )
+// }
 
-export default ImageCard
+// export default ImageCard
 
 // import { useState } from 'react';
 // import Modal from 'react-modal';
