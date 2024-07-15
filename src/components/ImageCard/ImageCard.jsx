@@ -41,3 +41,4 @@ const ImageCard = ({ url, desc, modalUrl }) => {
 }
 
 export default ImageCard;
+
