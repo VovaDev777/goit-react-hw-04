@@ -6,7 +6,7 @@
 //   return (
 //     <div>
 //       <img src={url} alt={desc} className={css.image}/>
-//     </div
+//     </div>
 //   )
 // }
 
