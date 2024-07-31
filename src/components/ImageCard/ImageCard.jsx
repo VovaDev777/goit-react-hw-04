@@ -10,3 +10,4 @@ const ImageCard = ({url, desc}) => {
 }
 
 export default ImageCard
+
