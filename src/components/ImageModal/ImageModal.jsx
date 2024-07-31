@@ -1,9 +1,15 @@
+import css from './ImageModal.module.css';
 
+const ImageModal = ({ isOpen, modalUrl, desc, onClose }) => {
+  if (!isOpen) return null;
 
-const ImageModal = () => {
   return (
-    <div>ImageModal</div>
-  )
-}
+    <div className={css.modalOverlay} onClick={onClose}>
+      <div className={css.modalContent} onClick={(e) => e.stopPropagation()}>
+        <img src={modalUrl} alt={desc} className={css.modalImage} />
+      </div>
+    </div>
+  );
+};
 
-export default ImageModal
+export default ImageModal;
