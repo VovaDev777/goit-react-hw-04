@@ -1,7 +1,7 @@
 import css from './ImageModal.module.css';
 
 const ImageModal = ({ isOpen, modalUrl, desc, onClose }) => {
-  if (!isOpen) return null;
+  // if (!isOpen) return null;
 
   return (
     <div className={css.modalOverlay} onClick={onClose}>

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    list-style-type: none;
 }
 .container {
     margin-top: 10px;
